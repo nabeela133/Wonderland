@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wonderland Registration</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://img.freepik.com/premium-photo/mockup-blank-craft-package-colorful-paper-shopping-bag-with-handles_35380-2749.jpg?w=740');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .short-input {
+            width: 50px;
+        }
+
+        .container h2 {
+            color: #333;
+        }
+
+        .form-group {
+            margin: 20px 0;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-option {
+            margin: 20px 0;
+        }
+
+        .login-option button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-option button:hover {
+            background-color: #218838;
+        }
+
+        .login-option button {
+            margin: 5px;
+        }
+
+        .register-option button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .register-option button:hover {
+            background-color: #218838;
+        }
+
+        .register-option button {
+            margin: 5px;
+        }
+
+        .hidden-form {
+            display: none;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<div class="container" id="main-container">
+    <h1>Wonderland</h1>
+    <div class="login-option">
+        <button id="login-as-customer-button">Login as Customer</button>
+        <button id="login-as-seller-button">Login as Seller</button>
+    </div>
+    <p>Don't have an account? <button id="show-registration">Register</button></p>
+</div>
+
+<div class="container hidden-form" id="login-as-customer-form">
+    <h2>Login as Customer</h2>
+    <div class="form-group">
+        <input type="email" placeholder="Email" size="1">
+    </div>
+    <div class="form-group">
+        <input type="password" placeholder="Password" size="2">
+    </div>
+    <div class="form-group">
+        <a href="interface.html"><button id="login-as-customer">Login</button></a>
+    </div>
+    <p>Don't have an account? <a href="#" id="show-registration-customer">Register as Customer</a></p>
+    
+</div>
+
+<div class="container hidden-form" id="login-as-seller-form">
+    <h2>Login as Seller</h2>
+    <div class="form-group">
+        <input type="email" placeholder="Email" size="2">
+    </div>
+    <div class="form-group">
+        <input type="password" placeholder="Password" size="2">
+    </div>
+    <div class="form-group">
+        <input type="text" placeholder="phone number" size="2">
+    </div>
+    <div class="form-group">
+        <a href="interface.html"><button id="login-as-seller">Login</button></a>
+    </div>
+    <p>Don't have an account? <a href="#" id="show-registration-seller">Register as Seller</a></p>
+    
+</div>
+
+<div class="container hidden-form" id="registration-form">
+    <h2>Registration</h2>
+    
+        <div class="register-option">
+            <button id="register-as-customer-button">Register as Customer</button>
+            <button id="register-as-seller-button">Register as Seller</button>
+        </div>
+    </div>
+    
+</div>
+
+<div class="container hidden-form" id="register-as-seller-form">
+    <h2>Register as Seller</h2>
+    <div class="form-group">
+        <input type="email" placeholder="Email" size="2">
+    </div>
+    <div class="form-group">
+        <input type="password" placeholder="Password" size="2">
+    </div>
+    <div class="form-group">
+        <input type="phone number" placeholder="phone number" size="2">
+    </div>
+    <div class="form-group">
+        <a href="interface.html"><button id="Register-as-seller">Register</button></a>
+    </div>
+    <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+</div>
+
+<div class="container hidden-form" id="register-as-customer-form">
+    <h2>Register as Customer</h2>
+    <div class="form-group">
+        <input type="text" placeholder="Full Name" size="2">
+    </div>
+    <div class="form-group">
+        <input type="email" placeholder="Email" size="1">
+    </div>
+    <div class="form-group">
+        <input type="password" placeholder="Password" size="2">
+    </div>
+    <div class="form-group">
+        <a href="interface.html"><button id="register-as-customer">Register</button></a>
+    </div>
+    <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+    
+</div>
+
+<script>
+    const mainContainer = document.getElementById('main-container');
+    const loginAsCustomerButton = document.getElementById('login-as-customer-button');
+    const loginAsSellerButton = document.getElementById('login-as-seller-button');
+    const registerAsCustomerButton = document.getElementById('register-as-customer-button');
+    const registerAsSellerButton = document.getElementById('register-as-seller-button');
+    
+    // Function to show the selected form
+    function showForm(formId) {
+        // Hide all forms
+        const forms = document.querySelectorAll('.container');
+        forms.forEach(form => {
+            form.style.display = 'none';
+        });
+
+        // Display the selected form
+        const selectedForm = document.getElementById(formId);
+        selectedForm.style.display = 'block';
+    }
+
+    loginAsCustomerButton.addEventListener('click', function () {
+        showForm('login-as-customer-form');
+    });
+
+    loginAsSellerButton.addEventListener('click', function () {
+        showForm('login-as-seller-form');
+    });
+
+    registerAsCustomerButton.addEventListener('click', function () {
+        showForm('register-as-customer-form');
+    });
+
+    registerAsSellerButton.addEventListener('click', function () {
+        showForm('register-as-seller-form');
+    });
+
+    document.getElementById('show-registration').addEventListener('click', function () {
+        showForm('registration-form');
+    });
+
+    document.getElementById('show-login').addEventListener('click', function () {
+        showForm('main-container');
+    });
+
+    document.getElementById('show-registration-customer').addEventListener('click', function () {
+        showForm('registration-form');
+    });
+
+    document.getElementById('show-registration-seller').addEventListener('click', function () {
+        showForm('registration-form');
+    // Add an event listener for the "Login" button within the "register as customer" form
+    
+
+});
+</script>
+</body>
+</html>
